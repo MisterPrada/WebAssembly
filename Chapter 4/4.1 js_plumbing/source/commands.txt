@@ -1,0 +1,3 @@
+emcc validate.cpp -o validate.js -s EXPORTED_RUNTIME_METHODS="['ccall', 'UTF8ToString']" -s EXPORTED_FUNCTIONS="['_malloc', '_free']"
+
+После выполения команды файлы validate.js и validate.wasm будут созданы в текущей директории их нужно будет скопировать в папку "frontend".

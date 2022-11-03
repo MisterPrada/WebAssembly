@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Connect Module</title>
+</head>
+<body>
+    <script>
+        const importObject = {
+            env: {
+                __memory_base: 0,
+                __table_base: 0,
+                memory: new WebAssembly.Memory({initial: 256, maximum: 256}),
+            }
+        };
+
+        WebAssembly.instantiateStreaming(fetch('side_module.wasm'), importObject).then(result => {
+            const {instance} = result;
+            const {exports} = instance;
+
+            console.log(exports.Increment(17).toString());
+            console.log(exports.Decrement(17).toString());
+        }).catch(console.error);
+    </script>
+</body>
+</html>

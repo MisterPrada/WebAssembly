@@ -1,7 +1,7 @@
-int Increment(int Value){
+int Increment(int value){
     return (value + 1);
 }
 
-int main(){
-
+int Decrement(int value){
+    return (value - 1);
 }
